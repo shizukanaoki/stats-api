@@ -18,4 +18,19 @@ app.get("/avg", async (req, res) => {
   res.json({ avg });
 });
 
+app.get("/top", async (req, res) => {
+  const sorted = [...data];
+  // Sort the data by score in descending order by bubble sort
+  for (let i = 0; i < sorted.length; i++) {
+    for (let j = 0; j < sorted.length - 1 - i; j++) {
+      if (sorted[j].score < sorted[j + 1].score) {
+        const temp = sorted[j];
+        sorted[j] = sorted[j + 1];
+        sorted[j + 1] = temp;
+      }
+    }
+  }
+  res.json(sorted.slice(0, 3));
+});
+
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));
