@@ -1,7 +1,7 @@
 {
   "name": "stats-api",
   "scripts": {
-    "start": "source .env && ts-node -r newrelic src/index.ts"
+    "start": "dotenv -- ts-node -r newrelic src/index.ts"
   },
   "dependencies": {
     "express": "^4.21.1",
@@ -11,6 +11,7 @@
   "devDependencies": {
     "@types/express": "^5.0.0",
     "@types/node": "^22.9.0",
+    "dotenv-cli": "^7.4.2",
     "typescript": "^5.6.3"
   }
 }
