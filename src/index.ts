@@ -11,7 +11,7 @@ app.get("/", (req, res) => {
 
 app.get("/avg", async (req, res) => {
   const sum = data.reduce((acc, student) => {
-    return acc + student.TestScore;
+    return acc + student.score;
   }, 0);
   const avg = sum / data.length;
 
