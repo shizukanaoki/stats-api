@@ -20,8 +20,8 @@ app.get("/avg", async (req, res) => {
 
 app.get("/top", async (req, res) => {
   const sorted = [...data];
-  // Sort the data by score in descending order by bubble sort
-  for (let i = 0; i < sorted.length; i++) {
+  // Sort the data by score in descending order by bubble sort, not in place
+  for (let i = 0; i < sorted.length - 1; i++) {
     for (let j = 0; j < sorted.length - 1 - i; j++) {
       if (sorted[j].score < sorted[j + 1].score) {
         const temp = sorted[j];
